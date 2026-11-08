@@ -8,7 +8,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_absolute_error
 
 ROOT=Path(__file__).parent; DB=ROOT/'data'/'cvi_ia.db'
-st.set_page_config(page_title='CVI-IA',page_icon='⚡',layout='wide')
+st.set_page_config(page_title='CVI-IA',page_icon='',layout='wide')
 st.markdown('''<style>.stApp{background:#f4f7f8}h1,h2,h3{color:#153B5B}div[data-testid="stMetric"]{background:white;border:1px solid #e2e8ec;padding:12px;border-radius:12px}div.stButton>button,div.stDownloadButton>button{background:#159A79;color:white;border:0}</style>''',unsafe_allow_html=True)
 
 def db(sql,args=(),read=False):
@@ -43,7 +43,7 @@ def parse(txt):
             except:pass
     return out
 
-st.title('⚡ CVI-IA')
+st.title('CVI-IA')
 st.subheader('Calculadora de Viabilidad, Consumo y Ahorro Inteligente')
 st.write('Analiza el consumo, estima escenarios de ahorro y detecta cambios inusuales. El prototipo prioriza hogares y está preparado para ampliarse a grandes instalaciones.')
 with st.sidebar:
@@ -51,7 +51,7 @@ with st.sidebar:
     st.write('Quien no tenga internet o computadora puede acudir a un módulo participante o solicitar captura asistida por teléfono.')
     st.caption('Prototipo académico. No afiliado a CFE ni a organismos de agua.')
 
-T=st.tabs(['🏠 Calculadora','📄 Recibo PDF','📈 Historial','💧 Agua','🏢 Grandes instalaciones','🤝 Comunidad'])
+T=st.tabs([' Calculadora',' Recibo PDF',' Historial','Agua',' Sede',' Comunidad'])
 with T[0]:
     st.header('Calculadora del hogar')
     c1,c2,c3=st.columns(3)
@@ -122,4 +122,5 @@ with T[5]:
         if not ok or ck<=0 or ca<=0:st.error('Se requiere autorización y datos mayores que cero.')
         else:db('INSERT INTO energia(folio,fecha,kwh,importe,dias) VALUES(?,?,?,?,?)',(f or 'Captura comunitaria',date.today().isoformat(),ck,ca,cd)); st.success('Ficha guardada. No se almacena teléfono ni nombre completo.')
     st.caption('La atención telefónica real requiere personal, capacitación, acuerdos y protocolo de privacidad. Este prototipo no realiza llamadas.')
-st.divider(); st.caption('CVI-IA es un prototipo académico. No sustituye a CFE, al organismo de agua ni a personal técnico. Ahorros estimados no son garantías.')
+st.divider(); st.caption('CVI-IA es un prototipo académico. No sustituye a CFE, SACMEX, ni a personal técnico. Ahorros estimados no son garantías.')
+              st.caption('UNRC, proyecto prototípico, Cuarto Semestre, Grupo 401, Equipo 4  ')
