@@ -123,4 +123,5 @@ with T[5]:
         else:db('INSERT INTO energia(folio,fecha,kwh,importe,dias) VALUES(?,?,?,?,?)',(f or 'Captura comunitaria',date.today().isoformat(),ck,ca,cd)); st.success('Ficha guardada. No se almacena teléfono ni nombre completo.')
     st.caption('La atención telefónica real requiere personal, capacitación, acuerdos y protocolo de privacidad. Este prototipo no realiza llamadas.')
 st.divider(); st.caption('CVI-IA es un prototipo académico. No sustituye a CFE, SACMEX, ni a personal técnico. Ahorros estimados no son garantías.')
-              st.caption('UNRC, proyecto prototípico, Cuarto Semestre, Grupo 401, Equipo 4  ')
+st.caption('UNRC, proyecto prototípico, Cuarto Semestre, Grupo 401, Equipo 4')
+             
